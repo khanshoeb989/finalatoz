@@ -22,6 +22,11 @@ const Navbar1 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
@@ -35,7 +40,7 @@ const Navbar1 = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-4 left-0 right-0 z-50 flex justify-center"
+      className="fixed top-1 sm:top-2 md:top-4 left-0 right-0 z-50 flex justify-center"
     >
       <motion.div
         className={`flex items-center justify-between px-4 sm:px-6 py-3 rounded-full w-[94%] sm:w-[90%] md:w-[80%] max-w-5xl transition-all duration-300 border border-border shadow-md

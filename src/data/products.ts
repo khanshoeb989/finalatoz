@@ -61,6 +61,8 @@ export const products: Product[] = [
       "/assets/ar5.jpg",
       "/assets/ar6.jpg",
       "/assets/ar7.jpg",
+      "/assets/ar8.jpg",
+      "/assets/ar9.jpg",
     ],
     features: [
       "Withstands heavy forklift and vehicle traffic",

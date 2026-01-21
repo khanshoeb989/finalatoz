@@ -2,101 +2,166 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { ArrowRight, Shield, Wrench, Award, Clock } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroBg from "@/assets/hero-bg.jpg";
 import { products } from "@/data/products";
 import Testimonials from "@/components/Testimonials";
 import Demo from "../components/Demo";
 import SpinningClientLogos from "@/components/LogoCloudCarouselDemo";
-import Navbar1 from "@/components/ui/navbar-1";
-import ProductCard from "@/components/ProductCard"; // ✅ Using reusable ProductCard
+import ProductCard from "@/components/ProductCard";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
+/* ===============================
+   Home Page
+================================ */
 const Home = () => {
+  useScrollToTop();
+
   const featuredProducts = products.slice(0, 6);
   const [currentLine, setCurrentLine] = useState(0);
 
   const rotatingLines = [
-    "Smart Fire Systems",
-    "Industrial Automation",
-    "Reliable Equipment Solutions",
+    "Smart Fire Safety Systems",
+    "Industrial Automation Solutions",
+    "Reliable Industrial Equipment",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLine((prev) => (prev + 1) % rotatingLines.length);
-    }, 3000); // Change every 3 seconds
-
+    }, 3000);
     return () => clearInterval(interval);
-  }, [rotatingLines.length]);
+  }, []);
 
   return (
-    <div className="min-h-screen">
-      
+    <>
+      {/* ================= SEO META ================= */}
+      <Helmet>
+        <title>
+          Fire Safety & Industrial Equipment Supplier | AtoZ Enterprise
+        </title>
 
-      <Demo />
+        <meta
+          name="description"
+          content="AtoZ Enterprise is a trusted fire safety and industrial equipment supplier in India with 7+ years of experience and 500+ completed projects."
+        />
 
-      {/* Hero Section */}
+        <meta
+          name="keywords"
+          content="fire safety systems, fire protection equipment, industrial automation, industrial tools, AtoZ Enterprise"
+        />
 
-      {/* Company Overview Section */}
-      <CompanyOverview />
+        <link rel="canonical" href="https://atozenterprise.co.in/" />
 
-      {/* Featured Products Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Featured <span className="text-gradient">Products</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Explore our range of high-quality industrial and fire safety
-                equipment
-              </p>
-            </div>
-          </AnimatedSection>
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="AtoZ Enterprise | Fire Safety & Industrial Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Reliable fire safety systems and industrial equipment provider across India."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atozenterprise.co.in/" />
+        <meta
+          property="og:image"
+          content="https://atozenterprise.co.in/og-image.jpg"
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product, index) => (
-              <AnimatedSection key={product.id} delay={index * 0.1}>
-                <ProductCard product={product} /> {/* ✅ Reused Component */}
-              </AnimatedSection>
-            ))}
-          </div>
+        {/* Organization Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "AtoZ Enterprise",
+            url: "https://atozenterprise.co.in",
+            logo: "https://atozenterprise.co.in/logo.png",
+            description:
+              "Fire safety and industrial equipment supplier with 7+ years of experience.",
+          })}
+        </script>
+      </Helmet>
 
-          <div className="text-center mt-12">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/products">
-                View All Products <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <main className="min-h-screen">
+        {/* ================= HERO ================= */}
+        <header>
+          <Demo />
+        </header>
 
-      
+        {/* ================= ABOUT ================= */}
+        <CompanyOverview />
 
+        {/* ================= FEATURED PRODUCTS ================= */}
+        <section
+          className="py-20 bg-background"
+          aria-labelledby="featured-products-heading"
+        >
+          <div className="container mx-auto px-4">
+            <AnimatedSection>
               <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Our Previous <span className="text-gradient">Clients</span>
-              </h2>
-              
+                <h2
+                  id="featured-products-heading"
+                  className="text-4xl md:text-5xl font-bold mb-4"
+                >
+                  Featured <span className="text-gradient">Products</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Explore high-quality fire safety systems and industrial
+                  equipment trusted by businesses across India.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProducts.map((product, index) => (
+                <AnimatedSection key={product.id} delay={index * 0.1}>
+                  <ProductCard product={product} />
+                </AnimatedSection>
+              ))}
             </div>
 
-      {/* Partner Logos Section */}
-      <SpinningClientLogos />
+            <div className="text-center mt-12">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/products" aria-label="View all products">
+                  View All Products <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
 
-      {/* Testimonials Section */}
-      <TestimonialsSection />
+        {/* ================= CLIENTS ================= */}
+        <section
+          className="py-20"
+          aria-labelledby="clients-heading"
+        >
+          <h2
+            id="clients-heading"
+            className="text-4xl md:text-5xl font-bold text-center mb-16"
+          >
+            Our Previous <span className="text-gradient">Clients</span>
+          </h2>
 
-      <Footer />
-    </div>
+          <SpinningClientLogos />
+        </section>
+
+        {/* ================= TESTIMONIALS ================= */}
+        <TestimonialsSection />
+
+        <Footer />
+      </main>
+    </>
   );
 };
 
-// Animated Section Component
+/* ===============================
+   Animated Wrapper
+================================ */
 const AnimatedSection = ({
   children,
   delay = 0,
@@ -109,9 +174,7 @@ const AnimatedSection = ({
   const controls = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
+    if (isInView) controls.start("visible");
   }, [isInView, controls]);
 
   return (
@@ -130,7 +193,9 @@ const AnimatedSection = ({
   );
 };
 
-// Company Overview Component
+/* ===============================
+   Company Overview
+================================ */
 const CompanyOverview = () => {
   const stats = [
     { icon: Clock, label: "Years Experience", value: "7+" },
@@ -140,30 +205,35 @@ const CompanyOverview = () => {
   ];
 
   return (
-    <section className="py-20 bg-white text-secondary-foreground">
+    <section
+      className="py-20 bg-white"
+      aria-labelledby="about-heading"
+    >
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
-              <span className="text-gradient">About AtoZ Enterprise</span>
-            </h2>
+            <h1
+              id="about-heading"
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Fire Safety & Industrial Solutions by{" "}
+              <span className="text-gradient">AtoZ Enterprise</span>
+            </h1>
+
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              With over 7 years of experience, AtoZ Enterprise provides
-              top-notch fire safety and industrial solutions. Our mission is to
-              ensure safety, innovation, and reliability for every client we
-              serve.
+              AtoZ Enterprise delivers reliable fire protection systems and
+              industrial equipment with over 7 years of proven industry
+              expertise across India.
             </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
-              <Card className="p-6 text-center hover:scale-105 transition-transform duration-300 bg-card">
+              <Card className="p-6 text-center bg-card">
                 <stat.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <div className="text-3xl font-bold text-foreground mb-2">
-                  {stat.value}
-                </div>
+                <div className="text-3xl font-bold">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">
                   {stat.label}
                 </div>
@@ -176,49 +246,26 @@ const CompanyOverview = () => {
   );
 };
 
-// Testimonials Component
+/* ===============================
+   Testimonials
+================================ */
 const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      name: "John Smith",
-      company: "ABC Manufacturing",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
-      text: "AtoZ Enterprise provided exceptional fire safety systems for our facility. Their expertise and professionalism are unmatched.",
-    },
-    {
-      name: "Sarah Johnson",
-      company: "XYZ Logistics",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-      text: "The loading dock equipment we purchased has significantly improved our operations. Highly recommend their products!",
-    },
-    {
-      name: "Michael Chen",
-      company: "Industrial Solutions Inc.",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
-      text: "Outstanding quality and customer service. AtoZ Enterprise is our go-to supplier for all industrial equipment needs.",
-    },
-  ];
-
   return (
-    <section className="py-20 bg-background">
+    <section
+      className="py-20 bg-background"
+      aria-labelledby="testimonials-heading"
+    >
       <div className="container mx-auto px-4">
         <AnimatedSection>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2
+            id="testimonials-heading"
+            className="text-4xl md:text-5xl font-bold text-center mb-16"
+          >
             What Our <span className="text-gradient">Clients Say</span>
           </h2>
         </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <AnimatedSection key={index} delay={index * 0.2}>
-              <motion.div
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                transition={{ duration: 0.3 }}
-              ></motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
       </div>
+
       <Testimonials />
     </section>
   );

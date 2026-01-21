@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
+  https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+
+  <!-- ================= CORE PAGES ================= -->
+
+  <url>
+    <loc>https://atozenterprise.co.in/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ================= DOCK LEVELER ================= -->
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/1</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ================= ARMOUR JOINT PRODUCTS ================= -->
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/3</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/4</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/5</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ================= FIRE SAFETY EQUIPMENTS ================= -->
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/6</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/7</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/8</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/9</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/10</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/11</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/12</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/13</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://atozenterprise.co.in/products/14</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

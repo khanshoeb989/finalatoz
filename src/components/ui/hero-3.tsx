@@ -45,7 +45,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   return (
     <section
       className={cn(
-        "relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-center text-center px-4",
+        "relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-center text-center px-3 sm:px-4 -mt-20 sm:mt-0",
         className
       )}
     >
