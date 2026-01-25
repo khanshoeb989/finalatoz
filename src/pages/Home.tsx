@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { ArrowRight, Shield, Wrench, Award, Clock } from "lucide-react";
@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Footer from "@/components/Footer";
-import heroBg from "@/assets/hero-bg.jpg";
 import { products } from "@/data/products";
 import Testimonials from "@/components/Testimonials";
 import Demo from "../components/Demo";
@@ -20,110 +19,65 @@ import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 ================================ */
 const Home = () => {
   useScrollToTop();
-
   const featuredProducts = products.slice(0, 6);
-  const [currentLine, setCurrentLine] = useState(0);
-
-  const rotatingLines = [
-    "Smart Fire Safety Systems",
-    "Industrial Automation Solutions",
-    "Reliable Industrial Equipment",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentLine((prev) => (prev + 1) % rotatingLines.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
       {/* ================= SEO META ================= */}
       <Helmet>
-  {/* 🔥 TITLE (MOST IMPORTANT) */}
-  <title>
-    Fire Safety & Industrial Equipment Supplier in Bhiwandi | AtoZ Enterprise
-  </title>
+        <title>
+          Fire Safety & Industrial Equipment Supplier in Bhiwandi | AtoZ Enterprise
+        </title>
 
-  {/* 🔥 META DESCRIPTION */}
-  <meta
-    name="description"
-    content="AtoZ Enterprise is a trusted fire safety systems and industrial equipment supplier in Bhiwandi, Maharashtra with 7+ years of experience and 500+ completed projects. We provide fire alarm systems, fire extinguishers, hydrant systems, and industrial automation solutions."
-  />
+        <meta
+          name="description"
+          content="AtoZ Enterprise is a trusted fire safety systems and industrial equipment supplier located on Kalyan Road, Bhiwandi, Thane, Maharashtra. We provide fire alarm systems, fire extinguishers, hydrant systems, and industrial automation solutions."
+        />
 
-  {/* ❗ Keywords are optional but OK */}
-  <meta
-    name="keywords"
-    content="fire safety supplier in Bhiwandi, fire safety systems Bhiwandi, industrial equipment supplier Bhiwandi, fire alarm systems, fire extinguishers supplier, industrial automation, AtoZ Enterprise Bhiwandi"
-  />
+        <link rel="canonical" href="https://atozenterprise.co.in/" />
 
-  {/* 🔗 CANONICAL */}
-  <link rel="canonical" href="https://atozenterprise.co.in/" />
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Fire Safety Supplier in Bhiwandi | AtoZ Enterprise"
+        />
+        <meta
+          property="og:description"
+          content="Fire safety systems and industrial equipment supplier in Bhiwandi, Maharashtra."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atozenterprise.co.in/" />
+        <meta
+          property="og:image"
+          content="https://atozenterprise.co.in/og-image.jpg"
+        />
 
-  {/* ================= OPEN GRAPH ================= */}
-  <meta
-    property="og:title"
-    content="Fire Safety & Industrial Equipment Supplier in Bhiwandi | AtoZ Enterprise"
-  />
-  <meta
-    property="og:description"
-    content="AtoZ Enterprise provides reliable fire safety systems and industrial equipment in Bhiwandi, Maharashtra. Trusted by industries, warehouses, and commercial buildings."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://atozenterprise.co.in/" />
-  <meta
-    property="og:image"
-    content="https://atozenterprise.co.in/og-image.jpg"
-  />
-
-
-
-  {/* ================= LOCAL BUSINESS SCHEMA (VERY POWERFUL) ================= */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "AtoZ Enterprise",
-      url: "https://atozenterprise.co.in",
-      logo: "https://atozenterprise.co.in/logo.png",
-      image: "https://atozenterprise.co.in/og-image.jpg",
-      description:
-        "AtoZ Enterprise is a fire safety systems and industrial equipment supplier in Bhiwandi, Maharashtra offering fire alarms, fire extinguishers, hydrant systems, and industrial automation solutions.",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Bhiwandi",
-        addressRegion: "Maharashtra",
-        addressCountry: "IN",
-      },
-      areaServed: [
-        "Bhiwandi",
-        "Mumbai",
-        "Thane",
-        "Maharashtra",
-      ],
-      sameAs: [
-        "https://www.facebook.com/",
-        "https://www.instagram.com/",
-        "https://www.linkedin.com/",
-      ],
-    })}
-  </script>
-
-  {/* ================= ORGANIZATION SCHEMA ================= */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "AtoZ Enterprise",
-      url: "https://atozenterprise.co.in",
-      logo: "https://atozenterprise.co.in/logo.png",
-      description:
-        "Fire safety and industrial equipment supplier in Bhiwandi with 7+ years of experience.",
-    })}
-  </script>
-</Helmet>
-
+        {/* Local Business Schema (MATCHES CONTACT PAGE) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "AtoZ Enterprise",
+            url: "https://atozenterprise.co.in",
+            telephone: "+91-82089-51520",
+            email: "atozenterprisesgh@gmail.com",
+            image: "https://atozenterprise.co.in/og-image.jpg",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Kalyan Road, Bhiwandi",
+              addressLocality: "Thane",
+              addressRegion: "Maharashtra",
+              postalCode: "421302",
+              addressCountry: "IN",
+            },
+            areaServed: ["Bhiwandi", "Mumbai", "Thane"],
+            openingHours: [
+              "Mo-Fr 08:00-18:00",
+              "Sa 09:00-14:00",
+            ],
+          })}
+        </script>
+      </Helmet>
 
       <main className="min-h-screen">
         {/* ================= HERO ================= */}
@@ -135,22 +89,16 @@ const Home = () => {
         <CompanyOverview />
 
         {/* ================= FEATURED PRODUCTS ================= */}
-        <section
-          className="py-20 bg-background"
-          aria-labelledby="featured-products-heading"
-        >
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <AnimatedSection>
               <div className="text-center mb-16">
-                <h2
-                  id="featured-products-heading"
-                  className="text-4xl md:text-5xl font-bold mb-4"
-                >
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">
                   Featured <span className="text-gradient">Products</span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Explore high-quality fire safety systems and industrial
-                  equipment trusted by businesses across India.
+                  Fire safety systems and industrial equipment trusted by
+                  businesses across Maharashtra.
                 </p>
               </div>
             </AnimatedSection>
@@ -165,7 +113,7 @@ const Home = () => {
 
             <div className="text-center mt-12">
               <Button variant="hero" size="lg" asChild>
-                <Link to="/products" aria-label="View all products">
+                <Link to="/products">
                   View All Products <ArrowRight className="ml-2" />
                 </Link>
               </Button>
@@ -174,22 +122,18 @@ const Home = () => {
         </section>
 
         {/* ================= CLIENTS ================= */}
-        <section
-          className="py-20"
-          aria-labelledby="clients-heading"
-        >
-          <h2
-            id="clients-heading"
-            className="text-4xl md:text-5xl font-bold text-center mb-16"
-          >
+        <section className="py-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             Our Previous <span className="text-gradient">Clients</span>
           </h2>
-
           <SpinningClientLogos />
         </section>
 
         {/* ================= TESTIMONIALS ================= */}
         <TestimonialsSection />
+
+        {/* ================= ADDRESS / CONTACT (CRITICAL FOR GOOGLE) ================= */}
+        <HomeAddressSection />
 
         <Footer />
       </main>
@@ -200,15 +144,9 @@ const Home = () => {
 /* ===============================
    Animated Wrapper
 ================================ */
-const AnimatedSection = ({
-  children,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  delay?: number;
-}) => {
+const AnimatedSection = ({ children, delay = 0 }: any) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -221,7 +159,7 @@ const AnimatedSection = ({
       initial="hidden"
       animate={controls}
       variants={{
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0 },
       }}
       transition={{ duration: 0.6, delay }}
@@ -243,42 +181,82 @@ const CompanyOverview = () => {
   ];
 
   return (
-    <section
-      className="py-20 bg-white"
-      aria-labelledby="about-heading"
-    >
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <h1
-              id="about-heading"
-              className="text-4xl md:text-5xl font-bold mb-6"
-            >
-              Fire Safety & Industrial Solutions by{" "}
-              <span className="text-gradient">AtoZ Enterprise</span>
-            </h1>
-
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              AtoZ Enterprise delivers reliable fire protection systems and
-              industrial equipment with over 7 years of proven industry
-              expertise across India.
-            </p>
-          </div>
-        </AnimatedSection>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Fire Safety & Industrial Solutions by{" "}
+            <span className="text-gradient">AtoZ Enterprise</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            AtoZ Enterprise is a fire safety systems and industrial equipment
+            supplier based on Kalyan Road, Bhiwandi, Maharashtra.
+          </p>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <Card className="p-6 text-center bg-card">
-                <stat.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <div className="text-3xl font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
-              </Card>
-            </AnimatedSection>
+            <Card key={index} className="p-6 text-center">
+              <stat.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
+              <div className="text-3xl font-bold">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">
+                {stat.label}
+              </div>
+            </Card>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
+
+/* ===============================
+   Address Section (NAP CONSISTENT)
+================================ */
+const HomeAddressSection = () => {
+  return (
+    <section className="py-20 bg-gray-50 border-t">
+      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Contact <span className="text-gradient">AtoZ Enterprise</span>
+          </h2>
+
+          <p className="text-gray-700 mb-4">
+            <strong>AtoZ Enterprise</strong><br />
+            Kalyan Road, Bhiwandi,<br />
+            Dist. Thane – 421302,<br />
+            Maharashtra, India
+          </p>
+
+          <p className="text-gray-700 mb-2">
+            <strong>Phone:</strong>{" "}
+            <a href="tel:+918208951520" className="text-primary">
+              +91 82089 51520
+            </a>
+          </p>
+
+          <p className="text-gray-700 mb-2">
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:atozenterprisesgh@gmail.com"
+              className="text-primary"
+            >
+              atozenterprisesgh@gmail.com
+            </a>
+          </p>
+
+          <p className="text-gray-700">
+            <strong>Service Areas:</strong> Bhiwandi, Mumbai, Thane, Maharashtra
+          </p>
+        </div>
+
+        <iframe
+          title="AtoZ Enterprise Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15031.382161363257!2d73.0546635673379!3d19.290022162960103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bd001bccc25b%3A0xc498ec794f97471c!2sA%20TO%20Z%20Enterprises!5e0!3m2!1sen!2sin!4v1762427712433!5m2!1sen!2sin"
+          className="w-full h-[300px] rounded-xl shadow-md"
+          loading="lazy"
+        />
       </div>
     </section>
   );
@@ -289,21 +267,12 @@ const CompanyOverview = () => {
 ================================ */
 const TestimonialsSection = () => {
   return (
-    <section
-      className="py-20 bg-background"
-      aria-labelledby="testimonials-heading"
-    >
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <h2
-            id="testimonials-heading"
-            className="text-4xl md:text-5xl font-bold text-center mb-16"
-          >
-            What Our <span className="text-gradient">Clients Say</span>
-          </h2>
-        </AnimatedSection>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          What Our <span className="text-gradient">Clients Say</span>
+        </h2>
       </div>
-
       <Testimonials />
     </section>
   );
