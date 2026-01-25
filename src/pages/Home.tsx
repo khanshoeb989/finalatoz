@@ -41,51 +41,87 @@ const Home = () => {
     <>
       {/* ================= SEO META ================= */}
       <Helmet>
-        <title>
-          Fire Safety & Industrial Equipment Supplier | AtoZ Enterprise
-        </title>
+  {/* 🔥 TITLE (MOST IMPORTANT) */}
+  <title>
+    Fire Safety & Industrial Equipment Supplier in Bhiwandi | AtoZ Enterprise
+  </title>
 
-        <meta
-          name="description"
-          content="AtoZ Enterprise is a trusted fire safety and industrial equipment supplier in India with 7+ years of experience and 500+ completed projects."
-        />
+  {/* 🔥 META DESCRIPTION */}
+  <meta
+    name="description"
+    content="AtoZ Enterprise is a trusted fire safety systems and industrial equipment supplier in Bhiwandi, Maharashtra with 7+ years of experience and 500+ completed projects. We provide fire alarm systems, fire extinguishers, hydrant systems, and industrial automation solutions."
+  />
 
-        <meta
-          name="keywords"
-          content="fire safety systems, fire protection equipment, industrial automation, industrial tools, AtoZ Enterprise"
-        />
+  {/* ❗ Keywords are optional but OK */}
+  <meta
+    name="keywords"
+    content="fire safety supplier in Bhiwandi, fire safety systems Bhiwandi, industrial equipment supplier Bhiwandi, fire alarm systems, fire extinguishers supplier, industrial automation, AtoZ Enterprise Bhiwandi"
+  />
 
-        <link rel="canonical" href="https://atozenterprise.co.in/" />
+  {/* 🔗 CANONICAL */}
+  <link rel="canonical" href="https://atozenterprise.co.in/" />
 
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="AtoZ Enterprise | Fire Safety & Industrial Solutions"
-        />
-        <meta
-          property="og:description"
-          content="Reliable fire safety systems and industrial equipment provider across India."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://atozenterprise.co.in/" />
-        <meta
-          property="og:image"
-          content="https://atozenterprise.co.in/og-image.jpg"
-        />
+  {/* ================= OPEN GRAPH ================= */}
+  <meta
+    property="og:title"
+    content="Fire Safety & Industrial Equipment Supplier in Bhiwandi | AtoZ Enterprise"
+  />
+  <meta
+    property="og:description"
+    content="AtoZ Enterprise provides reliable fire safety systems and industrial equipment in Bhiwandi, Maharashtra. Trusted by industries, warehouses, and commercial buildings."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://atozenterprise.co.in/" />
+  <meta
+    property="og:image"
+    content="https://atozenterprise.co.in/og-image.jpg"
+  />
 
-        {/* Organization Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "AtoZ Enterprise",
-            url: "https://atozenterprise.co.in",
-            logo: "https://atozenterprise.co.in/logo.png",
-            description:
-              "Fire safety and industrial equipment supplier with 7+ years of experience.",
-          })}
-        </script>
-      </Helmet>
+  {/* ================= LOCAL BUSINESS SCHEMA (VERY POWERFUL) ================= */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "AtoZ Enterprise",
+      url: "https://atozenterprise.co.in",
+      logo: "https://atozenterprise.co.in/logo.png",
+      image: "https://atozenterprise.co.in/og-image.jpg",
+      description:
+        "AtoZ Enterprise is a fire safety systems and industrial equipment supplier in Bhiwandi, Maharashtra offering fire alarms, fire extinguishers, hydrant systems, and industrial automation solutions.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bhiwandi",
+        addressRegion: "Maharashtra",
+        addressCountry: "IN",
+      },
+      areaServed: [
+        "Bhiwandi",
+        "Mumbai",
+        "Thane",
+        "Maharashtra",
+      ],
+      sameAs: [
+        "https://www.facebook.com/",
+        "https://www.instagram.com/",
+        "https://www.linkedin.com/",
+      ],
+    })}
+  </script>
+
+  {/* ================= ORGANIZATION SCHEMA ================= */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "AtoZ Enterprise",
+      url: "https://atozenterprise.co.in",
+      logo: "https://atozenterprise.co.in/logo.png",
+      description:
+        "Fire safety and industrial equipment supplier in Bhiwandi with 7+ years of experience.",
+    })}
+  </script>
+</Helmet>
+
 
       <main className="min-h-screen">
         {/* ================= HERO ================= */}
