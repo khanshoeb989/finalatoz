@@ -15,7 +15,7 @@ import ProductCard from "@/components/ProductCard";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 /* ===============================
-   Home Page
+   Home Page (SEO Optimized)
 ================================ */
 const Home = () => {
   useScrollToTop();
@@ -25,55 +25,101 @@ const Home = () => {
     <>
       {/* ================= SEO META ================= */}
       <Helmet>
+        {/* PRIMARY TITLE – ALL SEARCH VARIATIONS */}
         <title>
-          Fire Safety & Industrial Equipment Supplier in Bhiwandi | AtoZ Enterprise
+          AtoZ Enterprise | A To Z Enterprises Bhiwandi | Fire Safety & Industrial Equipment Supplier
         </title>
 
+        {/* META DESCRIPTION */}
         <meta
           name="description"
-          content="AtoZ Enterprise is a trusted fire safety systems and industrial equipment supplier located on Kalyan Road, Bhiwandi, Thane, Maharashtra. We provide fire alarm systems, fire extinguishers, hydrant systems, and industrial automation solutions."
+          content="AtoZ Enterprise (A To Z Enterprises) is a leading fire safety systems and industrial equipment supplier in Bhiwandi, Thane, Maharashtra. We supply fire extinguishers, fire alarm systems, hydrant systems and industrial safety solutions across Mumbai and Maharashtra."
+        />
+
+        {/* META KEYWORDS */}
+        <meta
+          name="keywords"
+          content="AtoZ Enterprise, A To Z Enterprises, Atoz Enterprises, Atoz Enterprise Bhiwandi, Fire Safety Supplier Bhiwandi, Fire Extinguisher Dealer Bhiwandi, Fire Alarm System Bhiwandi, Fire Hydrant System Maharashtra, Industrial Safety Equipment Thane, Industrial Equipment Supplier Mumbai"
         />
 
         <link rel="canonical" href="https://atozenterprise.co.in/" />
 
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Fire Safety Supplier in Bhiwandi | AtoZ Enterprise"
-        />
+        {/* OPEN GRAPH */}
+        <meta property="og:title" content="AtoZ Enterprise | Fire Safety Supplier in Bhiwandi" />
         <meta
           property="og:description"
-          content="Fire safety systems and industrial equipment supplier in Bhiwandi, Maharashtra."
+          content="Fire safety systems and industrial equipment supplier in Bhiwandi, Thane and Mumbai."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://atozenterprise.co.in/" />
-        <meta
-          property="og:image"
-          content="https://atozenterprise.co.in/og-image.jpg"
-        />
+        <meta property="og:image" content="https://atozenterprise.co.in/og-image.jpg" />
 
-        {/* Local Business Schema (MATCHES CONTACT PAGE) */}
+        {/* LOCAL BUSINESS + ORGANIZATION SCHEMA */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
+            "@type": ["LocalBusiness", "Organization"],
             name: "AtoZ Enterprise",
+            alternateName: [
+              "A To Z Enterprises",
+              "Atoz Enterprises",
+              "Atoz Enterprise Bhiwandi",
+            ],
             url: "https://atozenterprise.co.in",
+            image: "https://atozenterprise.co.in/og-image.jpg",
             telephone: "+91-82089-51520",
             email: "atozenterprisesgh@gmail.com",
-            image: "https://atozenterprise.co.in/og-image.jpg",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Kalyan Road, Bhiwandi",
-              addressLocality: "Thane",
+              addressLocality: "Bhiwandi",
               addressRegion: "Maharashtra",
               postalCode: "421302",
               addressCountry: "IN",
             },
-            areaServed: ["Bhiwandi", "Mumbai", "Thane"],
+            areaServed: [
+              "Bhiwandi",
+              "Thane",
+              "Mumbai",
+              "Maharashtra",
+            ],
             openingHours: [
               "Mo-Fr 08:00-18:00",
               "Sa 09:00-14:00",
+            ],
+          })}
+        </script>
+
+        {/* FAQ SCHEMA – HUGE LOCAL SEO BOOST */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Where is AtoZ Enterprise located?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "AtoZ Enterprise (A To Z Enterprises) is located on Kalyan Road, Bhiwandi, Thane, Maharashtra.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What products does AtoZ Enterprise supply?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We supply fire extinguishers, fire alarm systems, fire hydrant systems and industrial safety equipment.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Does AtoZ Enterprise serve Mumbai and Thane?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes, we serve Bhiwandi, Thane, Mumbai and all across Maharashtra.",
+                },
+              },
             ],
           })}
         </script>
@@ -91,17 +137,9 @@ const Home = () => {
         {/* ================= FEATURED PRODUCTS ================= */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <AnimatedSection>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                  Featured <span className="text-gradient">Products</span>
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Fire safety systems and industrial equipment trusted by
-                  businesses across Maharashtra.
-                </p>
-              </div>
-            </AnimatedSection>
+            <h2 className="sr-only">
+              Fire Safety Products by AtoZ Enterprise Bhiwandi
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProducts.map((product, index) => (
@@ -124,7 +162,7 @@ const Home = () => {
         {/* ================= CLIENTS ================= */}
         <section className="py-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Our Previous <span className="text-gradient">Clients</span>
+            Trusted Clients Across Bhiwandi, Thane & Mumbai
           </h2>
           <SpinningClientLogos />
         </section>
@@ -132,7 +170,7 @@ const Home = () => {
         {/* ================= TESTIMONIALS ================= */}
         <TestimonialsSection />
 
-        {/* ================= ADDRESS / CONTACT (CRITICAL FOR GOOGLE) ================= */}
+        {/* ================= ADDRESS / CONTACT ================= */}
         <HomeAddressSection />
 
         <Footer />
@@ -185,12 +223,14 @@ const CompanyOverview = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Fire Safety & Industrial Solutions by{" "}
+            Fire Safety & Industrial Equipment Supplier in Bhiwandi –{" "}
             <span className="text-gradient">AtoZ Enterprise</span>
           </h1>
+
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            AtoZ Enterprise is a fire safety systems and industrial equipment
-            supplier based on Kalyan Road, Bhiwandi, Maharashtra.
+            AtoZ Enterprise (A To Z Enterprises) is a trusted fire safety systems
+            and industrial equipment supplier based on Kalyan Road, Bhiwandi,
+            Maharashtra serving Thane and Mumbai regions.
           </p>
         </div>
 
@@ -223,7 +263,7 @@ const HomeAddressSection = () => {
           </h2>
 
           <p className="text-gray-700 mb-4">
-            <strong>AtoZ Enterprise</strong><br />
+            <strong>AtoZ Enterprise (A To Z Enterprises)</strong><br />
             Kalyan Road, Bhiwandi,<br />
             Dist. Thane – 421302,<br />
             Maharashtra, India
@@ -238,10 +278,7 @@ const HomeAddressSection = () => {
 
           <p className="text-gray-700 mb-2">
             <strong>Email:</strong>{" "}
-            <a
-              href="mailto:atozenterprisesgh@gmail.com"
-              className="text-primary"
-            >
+            <a href="mailto:atozenterprisesgh@gmail.com" className="text-primary">
               atozenterprisesgh@gmail.com
             </a>
           </p>
@@ -252,7 +289,7 @@ const HomeAddressSection = () => {
         </div>
 
         <iframe
-          title="AtoZ Enterprise Location"
+          title="AtoZ Enterprise Bhiwandi Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15031.382161363257!2d73.0546635673379!3d19.290022162960103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bd001bccc25b%3A0xc498ec794f97471c!2sA%20TO%20Z%20Enterprises!5e0!3m2!1sen!2sin!4v1762427712433!5m2!1sen!2sin"
           className="w-full h-[300px] rounded-xl shadow-md"
           loading="lazy"
